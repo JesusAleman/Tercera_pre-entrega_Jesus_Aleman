@@ -1,0 +1,42 @@
+{% extends 'p3app/base.html' %}
+{% load static %}
+
+{% block titulo%}
+    Catalogo
+{% endblock titulo%}
+
+{% block cabecera %}
+    Resultados de {{articulo}}
+{% endblock cabecera %}
+
+{% block descripcion %}
+    ¡Revisa nuestra variedad de productos!
+{% endblock descripcion %}
+
+{% block boton %}
+    <a class="btn btn-primary" href="{% url 'catalogoform' %}">
+        ¡Registra tus artículos!
+    </a>
+{% endblock boton %}
+
+{% block contenido %}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Artículo</th>
+            <th>Cantidad Disponible</th>
+            <th>Categoría</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for articulo in catalogo %}
+    <tr>
+        <td>{{articulo.articulo}}</td>
+        <td>{{articulo.cantidad}}</td>
+        <td>{{articulo.categoria}}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock contenido %}

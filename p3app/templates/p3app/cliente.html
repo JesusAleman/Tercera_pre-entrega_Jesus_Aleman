@@ -1,0 +1,30 @@
+{% extends 'p3app/base.html' %}
+{% load static %}
+
+{% block titulo%}
+    Clientes
+{% endblock titulo%}
+
+{% block cabecera %}
+    Clientes
+{% endblock cabecera %}
+
+{% block descripcion %}
+    ¡Comienza ya a comprar!
+{% endblock descripcion %}
+
+{% block contenido %}
+
+    <h2>¡Unete a nuestra plataforma!</h2>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <table>
+            {% comment %} {{form.as_table}} {% endcomment %}
+            <p>Nombre: <input type="text" name="nombre" id="nombre"></p>
+            <p>Fecha de Nacimiento: <input type="date" name="fechadenacimiento" id="fechadenacimiento"></p>
+            <p>email: <input type="email" name="email" id="email"></p>
+        </table>
+        <input type="submit" value="Unirse">
+    </form>
+
+{% endblock contenido %}

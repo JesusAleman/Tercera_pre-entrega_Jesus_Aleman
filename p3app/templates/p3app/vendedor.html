@@ -1,0 +1,42 @@
+{% extends 'p3app/base.html' %}
+{% load static %}
+
+{% block titulo%}
+    Vendedores
+{% endblock titulo%}
+
+{% block cabecera %}
+    Vendedores
+{% endblock cabecera %}
+
+{% block descripcion %}
+    Conoce a nuestros vendedores
+{% endblock descripcion %}
+
+{% block boton %}
+    <a class="btn btn-primary" href="{% url 'vendedorform' %}">
+        ¡Registrate como vendedor!
+    </a>
+{% endblock boton %}
+
+{% block contenido %}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Teléfono</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for vendedor in vendedores %}
+    <tr>
+        <td>{{vendedor.nombre}}</td>
+        <td>{{vendedor.telefono}}</td>
+        <td>{{vendedor.email}}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock contenido %}

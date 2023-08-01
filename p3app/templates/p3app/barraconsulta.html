@@ -1,0 +1,29 @@
+{% extends 'p3app/base.html' %}
+{% load static %}
+
+{% block titulo%}
+    Catalogo
+{% endblock titulo%}
+
+{% block cabecera %}
+    Catalogo de productos
+{% endblock cabecera %}
+
+{% block descripcion %}
+    ¡Revisa nuestra variedad de productos!
+{% endblock descripcion %}
+
+{% block boton %}
+    <a class="btn btn-primary" href="{% url 'catalogoform' %}">
+        ¡Registra tus artículos!
+    </a>
+{% endblock boton %}
+
+
+{% block contenido %}
+<form action="/p3app/consultacatalogo" method="get">
+    {% csrf_token %}
+    <input type="text" name="articulo" id="busqueda">
+    <input type="submit" value="Buscar">
+</form>
+{% endblock contenido %}

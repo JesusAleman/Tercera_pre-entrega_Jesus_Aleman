@@ -1,0 +1,35 @@
+{% extends 'p3app/base.html' %}
+{% load static %}
+
+{% block titulo%}
+    Vendedores
+{% endblock titulo%}
+
+{% block cabecera %}
+    Registro de Vendedores
+{% endblock cabecera %}
+
+{% block descripcion %}
+    ¡Registrate a nuestra red de vendedores!
+{% endblock descripcion %}
+
+{% block boton %}
+    <a class="btn btn-primary" href="{% url 'vendedorform' %}">
+        ¡Registrate como vendedor!
+    </a>
+{% endblock boton %}
+
+{% block contenido %}
+    <h2>¡Registrate!</h2>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <table>
+            {% comment %} {{form.as_table}} {% endcomment %}
+            <p>Nombre: <input type="text" name="nombre" id="nombre"></p>
+            <p>Teléfono: <input type="number" name="telefono" id="telefono"></p>
+            <p>Email: <input type="email" name="email" id="email"></p>
+            <p>RFC: <input type="text" name="rfc" id="rfc"></p>
+        </table>
+        <input type="submit" value="Registrar">
+    </form>
+{% endblock contenido %}

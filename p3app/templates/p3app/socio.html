@@ -1,0 +1,40 @@
+{% extends 'p3app/base.html' %}
+{% load static %}
+
+{% block titulo%}
+    Socios
+{% endblock titulo%}
+
+{% block cabecera %}
+    Socios
+{% endblock cabecera %}
+
+{% block descripcion %}
+    Conoce a nuestros socios
+{% endblock descripcion %}
+
+{% block boton %}
+    <a class="btn btn-primary" href="{% url 'socioform' %}">
+        ¡Registra a tu Empresa!
+    </a>
+{% endblock boton %}
+
+{% block contenido %}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Empresa</th>
+            <th>País de Origen</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for socio in socios %}
+    <tr>
+        <td>{{socio.empresa}}</td>
+        <td>{{socio.paisdeorigen}}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock contenido %}

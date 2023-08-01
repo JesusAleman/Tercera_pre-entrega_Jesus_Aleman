@@ -1,0 +1,34 @@
+{% extends 'p3app/base.html' %}
+{% load static %}
+
+{% block titulo%}
+    Socios
+{% endblock titulo%}
+
+{% block cabecera %}
+    Registro de Socios
+{% endblock cabecera %}
+
+{% block descripcion %}
+    ¡Registra a tu empresa con nosotros!
+{% endblock descripcion %}
+
+{% block boton %}
+    <a class="btn btn-primary" href="{% url 'socioform' %}">
+        ¡Registra a tu Empresa!
+    </a>
+{% endblock boton %}
+
+{% block contenido %}
+
+    <h2>¡Registra a tu empresa!</h2>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <table>
+            {% comment %} {{form.as_table}} {% endcomment %}
+            <p>Empresa: <input type="text" name="empresa" id="empresa"></p>
+            <p>País de origen: <input type="text" name="paisdeorigen" id="paisdeorigen"></p>
+        </table>
+        <input type="submit" value="Registrar">
+    </form>
+{% endblock contenido %}
