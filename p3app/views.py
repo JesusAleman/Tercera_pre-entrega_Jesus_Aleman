@@ -138,7 +138,7 @@ def consultacatalogo(request):
         articulo = request.GET['articulo']
         catalogo = CatalogoVenta.objects.filter(articulo__icontains=articulo)
         return render(request,
-                      "aplicacion/catalogoventabuscar.html",
+                      "p3app/catalogoventabuscar.html",
                       {"articulo":articulo, "catalogo":catalogo})
     
     return HttpResponse("El artículo buscado no se encuentra")
